@@ -1,4 +1,11 @@
 const inquirer = require('inquirer');
+const mysql = require('mysql2');
+const cTable = require('console.table');
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'employeetracker'
+  });
 
 const userQuestions = () => {
     inquirer
@@ -12,14 +19,23 @@ const userQuestions = () => {
 
         },
     // If view all departments, show all departments; if all roles, view all roles, etc
-    // If add department:
+//  `Select * from departments`,
+//  `Select * from roles`
+//  `Select * from employees`
+    
+// If add department: 
+  
     {
         type: 'input',
         name: 'adddeptprompt',
         message: 'Please enter the name of your department.'
     },
-    // add dept to database
+    // add dept to database:
+      // `INSERT INTO department (department_name) VALUES
+    // ('?'), ('?'), ('?');`
+    
     // If add role:
+
     {
         type: 'input',
         name: 'addnameprompt',
@@ -33,9 +49,13 @@ const userQuestions = () => {
     {
         type: 'input',
         name: 'adddeptforrole',
-        message: 'Please enter the department for this role.'
+        message: 'Please enter the department id for this role.'
     },
-    // add role to the database
+
+    // add role to the database: //     
+    // INSERT INTO roles (title,salary,department_id) VALUES
+// ('?', '?', ?)
+
     // If add employee:
     {
         type: 'input',
@@ -54,18 +74,22 @@ const userQuestions = () => {
         name: 'addempmanager',
         message: "Please enter the name of your employee's manager."
     },
-    // Add employee to database
-    // If update employee role:
+    // Add employee to database:
+//     INSERT INTO employees (first_name,last_name,role_id, manager_id) VALUES
+// ('?', '?', ?, ?);
+    
+// If update employee role:
     {
         type: 'input',
         name: 'updateempname',
-        message: "Please enter the name the employee you'd like to update."
+        message: "Please enter the name of the employee you'd like to update."
     },{
         type: 'input',
         name: 'updateemprole',
         message: 'Please enter the new role for your employee.'
     },
-    // Update employee's information in database
+    // Update employee's information in database:
+    // UPDATE employees SET role_id=? WHERE id=? - how to find the right employee?
     ])
 
 
