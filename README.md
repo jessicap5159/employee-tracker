@@ -14,7 +14,7 @@ This is an application created to manage a company's employee database via the c
 
 ## Installation
 Instructions:
-Click the URL [here]().
+Click the URL [here](https://drive.google.com/file/d/1mgYYPHZ3XRB5IP2aYDcgrlVcw2Vr1B2b/preview).
 
 ## Usage
 Please see the description.
