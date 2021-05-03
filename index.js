@@ -170,7 +170,7 @@ const userQuestions = () => {
                                                 db.viewAllEmployees().then((rows) => {
                                                     console.table(rows)
                                                     let managerChoices = rows.map(({ manager_id, first_name, last_name }) => {return {name: `${first_name} ${last_name}`, value:manager_id}})
-                                                    inquirer.prompt({ type: 'list', name: 'managerId', message: 'Choose the id of the manager for your employee.', choices: managerChoices })
+                                                    inquirer.prompt({ type: 'list', name: 'managerId', message: 'Choose the manager for your employee.', choices: managerChoices })
                                                         .then(({ managerId }) => {
                                                             console.log(managerId)
                                                              db.addEmployee(addempfirstname,addemplastname, rolesId, managerId)
